@@ -1,12 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-const Title = (props) =>{
-  return <h1>{props}</h1>
+const Title = ({course}) => <h1>{course}</h1>
+
+const Parrafo = (props) => {
+  return <p>{props.part1} {props.exercises1}</p>
 }
-const Parrafo = () =>{
-  
-}
+
 
 const App = () => {
   const course = 'Half Stack application development'
@@ -19,10 +19,8 @@ const App = () => {
 
   return (
     <div>
-      <title course={course}/>
-      <p>
-        {part1} {exercises1}
-      </p>
+      <Title course={course}/>
+      <Parrafo props={part1} propsq={exercises1}/>
       <p>
         {part2} {exercises2}
       </p>
