@@ -1,33 +1,40 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-const Title = ({course}) => <h1>{course}</h1>
+//const Title = ({course}) => <h1>{course}</h1>
 
-const Parrafo = (props) => {
-  return <p>{props.part1} {props.exercises1}</p>
+const Title = ({course}) => {
+  return <h1>{course}</h1>
 }
 
+//const lo =({msg1},{result}) => <p>{msg1}{}<p/>
+
+const Parrafo = (props) => {
+  return <p>{props.msg1} {props.result}</p>
+}
+
+const Final = (props) => {
+  const suma = props.exercises1 + props.exercises2 + props.exercises3
+  return <p>{props.texto} {props.suma}</p>
+}
 
 const App = () => {
-  const course = 'Half Stack application development'
-  const part1 = 'Fundamentals of React'
+  const courses = 'Half Stack application development'
+  const part1 = '1Fundamentals of React'
   const exercises1 = 10
-  const part2 = 'Using props to pass data'
+  const part2 = '2Using props to pass data'
   const exercises2 = 7
-  const part3 = 'State of a component'
+  const part3 = '3State of a component'
   const exercises3 = 14
 
   return (
     <div>
-      <Title course={course}/>
-      <Parrafo props={part1} propsq={exercises1}/>
-      <p>
-        {part2} {exercises2}
-      </p>
-      <p>
-        {part3} {exercises3}
-      </p>
-      <p>Number of exercises {exercises1 + exercises2 + exercises3}</p>
+      <Title course={courses} />
+      <Parrafo msg1={part1} result={exercises1}/>
+      <Parrafo msg1={part2} result={exercises2}/>
+      <Parrafo msg1={part3} result={exercises3}/>
+      <Final texto={'Number of exercises'} val1={exercises1} val2={exercises2} val3={exercises3} />
+       
     </div>
   )
 }
