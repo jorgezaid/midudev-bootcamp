@@ -14,8 +14,8 @@ const Parrafo = (props) => {
 }
 
 const Final = (props) => {
-  const suma = props.exercises1 + props.exercises2 + props.exercises3
-  return <p>{props.texto} {props.suma}</p>
+  let suma = props.exercises1 + props.exercises2 + props.exercises3
+  return <p>{props.texto} {suma}</p>
 }
 
 const App = () => {
