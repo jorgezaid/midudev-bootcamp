@@ -2,50 +2,47 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 import { useState } from 'react';
+import './styles.css'
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const App = () => {
+  //const [left, setLeft] = useState(0);
+  //const [right, setRight] = useState(0);
 
-const Counter = (props) => {
-  return <h1>{props.msg}</h1>
-}
+  //crear un Estado para botones 
 
-const App = (props) => {
-  const [contadorValue, updateContador] = useState(13);
+  const [contador, setcontador] = useState(
+    {
+      left:0,
+      right:0
+    }
+  );
 
-  /*
-  const contador = useState(13);
-  const contadorValue = contador[0];
-  const updateContador = contador[1];
-  */
-
-  const handlerClick = () => {
-    updateContador(contadorValue +1);
+  const handlerClickLeft = () => {
+    setcontador({
+      left : contador.left + 1,
+      right: contador.right
+    })
   }
 
-  const handlerReset = () => {
-    updateContador(0)
+  const handlerClickRight = () => {
+    setcontador({
+      left: contador.left,
+      right: contador.right + 1
+    })
   }
 
-  const isPar = contadorValue % 2 === 0;
-  const mensaje = isPar ? 'Es Par' : 'Impar';
-
+ 
   return (
     <div>
-      <Counter msg={contadorValue}/>
-      <p>{mensaje}</p>
-      <button
-      onClick={handlerClick}>
-        Incrementar
-      </button>
-      <button onClick={handlerReset}>
-        Reiniciar
-      </button>
+      {contador.left}
+      <button onClick={handlerClickLeft}>Izquierda</button>
+      <button onClick={handlerClickRight}>Derecha</button>
+      {contador.right}
     </div>
   );
 };
+const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <App />
 )
-
-
