@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { Note } from './Note.js'
 
 const notes = [
   {
@@ -22,25 +23,17 @@ const notes = [
   },
 ]
 
-const Note = ({id, content, date}) => {
-  return (
-  <li>
-    <p>{content}</p>
-    <small>
-      <time>{date}</time>
-    </small>
-  </li>
-  )};
-
 export default function App() {
   return (
     <ol>
       {notes.map((objetnew) => (
-        <Note key={objetnew.id} {...objetnew  }/>
+        <Note key={objetnew.id} {...objetnew} />
       ))}
     </ol >
   );
 }
 
-ReactDOM.render(<App notes={notes} />, document.getElementById('root'))
+ReactDOM.render(<App notes={notes}/>,
+document.getElementById('root')
+)
 
